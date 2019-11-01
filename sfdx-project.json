@@ -6,6 +6,13 @@
             "package": "PureAloeLWC",
             "versionNumber": "3.0.0.NEXT",
             "versionName": "Winter '19"
+        },
+        {
+            "path": "force-app",
+            "package": "purealoe-int-df19",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT",
+            "default": false
         }
     ],
     "namespace": "",
@@ -13,6 +20,7 @@
     "sourceApiVersion": "47.0",
     "packageAliases": {
         "PureAloeLWC": "0HoB0000000Gmi9KAC",
-        "PureAloeLWC@3.0.0-1": "04tB0000000OEFMIA4"
+        "PureAloeLWC@3.0.0-1": "04tB0000000OEFMIA4",
+        "purealoe-int-df19": "0HoB0000000KzIbKAK"
     }
 }
