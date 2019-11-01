@@ -9,13 +9,13 @@
     <aura:attribute
         name="steps"
         type="String[]"
-        default="['Draft', 'Submitted to Distributors', 'Ordered by Distributor', 'Shipped']"
+        default="['Draft', 'Submitted to Customers', 'Ordered by Customer', 'Shipped']"
     />
     <aura:attribute name="pathName" type="String" access="global" />
     <aura:attribute
         name="channel"
         type="String"
-        default="/topic/BundleStatusChange"
+        default="/data/Bundle__ChangeEvent"
     />
 
     <force:recordData
@@ -46,11 +46,11 @@
         />
 
         <aura:if
-            isTrue="{! equals(v.record.Status__c, 'Ordered by Distributor') &amp;&amp; v.account}"
+            isTrue="{! equals(v.record.Status__c, 'Ordered by Customer') &amp;&amp; v.account}"
         >
             <lightning:layout class="slds-p-top_small">
                 <lightning:layoutItem flexibility="grow" padding="around-small"
-                    >Ordered by: <a>{!v.account.Name}</a></lightning:layoutItem
+                                  >Ordered by: <a href="{!'/' + v.account.Id}">{!v.account.Name}</a></lightning:layoutItem
                 >
                 <lightning:layoutItem flexibility="grow" padding="around-small"
                     >Order Date:

@@ -16,14 +16,14 @@
                 <label>Draft</label>
             </value>
             <value>
-                <fullName>Submitted to Distributors</fullName>
+                <fullName>Submitted to Customers</fullName>
                 <default>false</default>
-                <label>Submitted to Distributors</label>
+                <label>Submitted to Customers</label>
             </value>
             <value>
-                <fullName>Ordered by Distributor</fullName>
+                <fullName>Ordered by Customer</fullName>
                 <default>false</default>
-                <label>Ordered by Distributor</label>
+                <label>Ordered by Customer</label>
             </value>
             <value>
                 <fullName>Shipped</fullName>
@@ -43,10 +43,22 @@
                 <label>Ordered</label>
             </value>
             <value>
+                <fullName>Ordered by Distributor</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Ordered by Distributor</label>
+            </value>
+            <value>
                 <fullName>Submitted to Distributor</fullName>
                 <default>false</default>
                 <isActive>false</isActive>
                 <label>Submitted to Distributor</label>
+            </value>
+            <value>
+                <fullName>Submitted to Distributors</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Submitted to Distributors</label>
             </value>
             <value>
                 <fullName>Submitted to Manufacturing</fullName>

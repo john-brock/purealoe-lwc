@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <status>ACTIVE</status>
     <actionCalls>
         <name>eventContextErrorEmail</name>
         <label>Context Error Email</label>
@@ -11,7 +10,7 @@
         <inputParameters>
             <name>emailSubject</name>
             <value>
-                <stringValue>Salesforce Bundle Ordered process didn&apos;t start: No matching records found</stringValue>
+                <stringValue>Salesforce Bundle Ordered process didn&#39;t start: No matching records found</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
@@ -37,7 +36,7 @@
         <inputParameters>
             <name>emailSubject</name>
             <value>
-                <stringValue>Salesforce Bundle Ordered process didn&apos;t start: Multiple matching records found</stringValue>
+                <stringValue>Salesforce Bundle Ordered process didn&#39;t start: Multiple matching records found</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
@@ -226,7 +225,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue/>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -317,7 +316,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue/>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -427,7 +426,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue/>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -444,17 +443,18 @@
         <object>Bundle__c</object>
     </recordUpdates>
     <startElementReference>myEventContextRecordLookup</startElementReference>
+    <status>Obsolete</status>
     <textTemplates>
         <description>text template for when multiple records are records found</description>
         <name>multipleRecordsFoundTextTemplate</name>
         <text>Hello {!OrganizationName} Admin,
 
-The Bundle Ordered process is configured to start when a Bundle Ordered platform event message occurs. A Bundle Ordered message occurred, but the process didn&apos;t start because multiple records in your org match the values specified in the process&apos;s Object node.
+The Bundle Ordered process is configured to start when a Bundle Ordered platform event message occurs. A Bundle Ordered message occurred, but the process didn&#39;t start because multiple records in your org match the values specified in the process&#39;s Object node.
 
 Here are the values from the Bundle Ordered message.
 Bundle Id: {!myVariable_myEvent.Bundle_Id__c}
 
-To fix this issue, adjust the matching filters in the process&apos;s Object node.
+To fix this issue, adjust the matching filters in the process&#39;s Object node.
 
 Thank you,
 Salesforce Process Automation</text>
@@ -464,12 +464,12 @@ Salesforce Process Automation</text>
         <name>noRecordsFoundTextTemplate</name>
         <text>Hello {!OrganizationName} Admin,
 
-The Bundle Ordered process is configured to start when a Bundle Ordered platform event message occurs. A Bundle Ordered message occurred, but the process didn&apos;t start because no records in your org match the values specified in the process&apos;s Object node.
+The Bundle Ordered process is configured to start when a Bundle Ordered platform event message occurs. A Bundle Ordered message occurred, but the process didn&#39;t start because no records in your org match the values specified in the process&#39;s Object node.
 
 Here are the values from the Bundle Ordered message.
 Bundle Id: {!myVariable_myEvent.Bundle_Id__c}
 
-To fix this issue, adjust the matching filters in the process&apos;s Object node.
+To fix this issue, adjust the matching filters in the process&#39;s Object node.
 
 Thank you,
 Salesforce Process Automation</text>

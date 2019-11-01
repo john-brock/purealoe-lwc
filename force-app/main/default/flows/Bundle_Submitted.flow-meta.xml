@@ -1,22 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <status>ACTIVE</status>
-    <assignments>
-        <name>myVariable_waitStartTimeAssignment</name>
-        <label>myVariable_waitStartTimeAssignment</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignmentItems>
-            <assignToReference>myVariable_waitStartTimeVariable</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>$Flow.CurrentDateTime</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>isChangedDecision2_myRule_1_Status_c</targetReference>
-        </connector>
-    </assignments>
     <decisions>
         <name>isChangedDecision2_myRule_1_Status_c</name>
         <label>isChangedDecision2_myRule_1_Status_c</label>
@@ -158,7 +141,7 @@
                 <leftValueReference>myVariable_current.Status__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Submitted to Distributors</stringValue>
+                    <stringValue>Submitted to Customers</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -250,7 +233,7 @@
             <label>Unsubmitted?</label>
         </rules>
     </decisions>
-    <interviewLabel>Bundle_Submitted-3_InterviewLabel</interviewLabel>
+    <interviewLabel>Bundle_Submitted-2_InterviewLabel</interviewLabel>
     <label>Bundle Submitted</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -304,7 +287,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue/>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -340,7 +323,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue/>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -376,7 +359,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue/>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -412,7 +395,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue/>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -455,7 +438,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue/>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -471,7 +454,8 @@
         </inputAssignments>
         <object>Bundle_Unsubmitted__e</object>
     </recordCreates>
-    <startElementReference>myVariable_waitStartTimeAssignment</startElementReference>
+    <startElementReference>isChangedDecision2_myRule_1_Status_c</startElementReference>
+    <status>Active</status>
     <variables>
         <name>myVariable_current</name>
         <dataType>SObject</dataType>
@@ -487,15 +471,5 @@
         <isInput>true</isInput>
         <isOutput>false</isOutput>
         <objectType>Bundle__c</objectType>
-    </variables>
-    <variables>
-        <name>myVariable_waitStartTimeVariable</name>
-        <dataType>DateTime</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-        <value>
-            <elementReference>$Flow.CurrentDateTime</elementReference>
-        </value>
     </variables>
 </Flow>
