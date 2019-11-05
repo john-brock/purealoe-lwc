@@ -1,0 +1,18 @@
+Salesforce Scratch Org
+sfdx force:org:create -s -f config/project-scratch-def.json -a purealoe
+sfdx force:source:push -u purealoe
+sfdx force:user:permset:assign -n purealoe
+sfdx force:user:password:generate -u purealoe
+sfdx force:user:display -u purealoe
+sfdx force:data:tree:import --plan ./data/Harvest_Field__c-plan.json -u purealoe
+sfdx force:data:tree:import --plan ./data/Merchandise__c-plan.json -u purealoe
+sfdx force:org:open -u purealoe
+From Blacktabe: disable "Login Challenge Enabled" and "Login with Api Token"
+Create Placeholder Account (any name will work)
+Add Bundle__c (Merchandise Bundle) to Change Data Capture selection screen
+Create new Bundle__c (Merchandise Bundle) Tab -- drag merchandise to the items screen, click Submitted to Customers
+
+Heroku
+Deploy Heroku app -- update config vars to have correct username and password
+Watch logs and ensure auth is successful
+Receive event (Bundle) alerts from Salesforce and Click Order
