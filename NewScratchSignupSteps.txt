@@ -1,4 +1,4 @@
-Salesforce Scratch Org
+----- SETTING UP NEW SCRATCH ORG -----
 sfdx force:org:create -s -f config/project-scratch-def.json -a purealoe
 sfdx force:source:push -u purealoe
 sfdx force:user:permset:assign -n purealoe
@@ -12,7 +12,32 @@ Create Placeholder Account (any name will work)
 Add Bundle__c (Merchandise Bundle) to Change Data Capture selection screen
 Create new Bundle__c (Merchandise Bundle) Tab -- drag merchandise to the items screen, click Submitted to Customers
 
-Heroku
+-- Heroku --
 Deploy Heroku app -- update config vars to have correct username and password
 Watch logs and ensure auth is successful
 Receive event (Bundle) alerts from Salesforce and Click Order
+
+----- SETTING UP NEW "REAL" ORG (not a scratch org) ----
+sfdx force:auth:web:login -a df19brk2
+sfdx force:source:deploy -p force-app/ -u df19brk2
+sfdx force:user:permset:assign -n purealoe -u df19brk2
+sfdx force:data:tree:import --plan ./data/Harvest_Field__c-plan.json -u df19brk2
+sfdx force:data:tree:import --plan ./data/Merchandise__c-plan.json -u df19brk2
+Create Placeholder Account (any name will work)
+Add Bundle__c (Merchandise Bundle) to Change Data Capture selection screen
+
+-- Heroku --
+Create new app in Pipeline for DF19 
+git remote add df19-2 https://git.heroku.com/df19-int-aloe-2.git
+git push df19-2 master
+
+- SET CONFIG VALUES of NEW APP -
+heroku config:set SF_CLIENT_ID=3MVG9SemV5D80oBfGt3nIhlNYpnlEjWo0_SyNEus09q6jiUeCakft7G_RjJ5ZaOWEDmrG673kfakndkMdoa8d -a df19-int-aloe-2
+heroku config:set SF_CLIENT_SECRET=C4524EE9F137EA11C65CA1142A9A2ED7CEB56D2B528DA41612C860C3D250EC5A -a df19-int-aloe-2
+heroku config:set SF_ENVIRONMENT=production -a df19-int-aloe-2
+heroku config:set SF_USER_NAME=jbrock@df19integration.demo -a df19-int-aloe-2
+heroku config:set SF_USER_PASSWORD="test1234" -a df19-int-aloe-2
+heroku config:set SF_CALLBACK_URL="http://df19-int-aloe-2.herokuapp.com/oauth/_callback" -a df19-int-aloe-2
+
+heroku ps:restart -a df19-int-aloe-2
+heroku logs -t -a df19-int-aloe-2
