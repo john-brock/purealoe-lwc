@@ -443,7 +443,7 @@
         <object>Bundle__c</object>
     </recordUpdates>
     <startElementReference>myEventContextRecordLookup</startElementReference>
-    <status>Obsolete</status>
+    <status>Draft</status>
     <textTemplates>
         <description>text template for when multiple records are records found</description>
         <name>multipleRecordsFoundTextTemplate</name>

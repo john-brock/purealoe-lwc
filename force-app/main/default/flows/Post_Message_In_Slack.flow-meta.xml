@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Slack_Post_Message</name>
+        <label>Slack Post Message</label>
+        <locationX>303</locationX>
+        <locationY>270</locationY>
+        <actionName>Slack.chat_postMessage</actionName>
+        <actionType>externalService</actionType>
+        <inputParameters>
+            <name>channel</name>
+            <value>
+                <stringValue>CQA2VLTMM</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>text</name>
+            <value>
+                <stringValue>Posting from Pure Aloe!</stringValue>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>chatMessageOutput_200</assignToReference>
+            <name>200</name>
+        </outputParameters>
+    </actionCalls>
+    <interviewLabel>Post Message In Slack {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Post Message In Slack</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <startElementReference>Slack_Post_Message</startElementReference>
+    <status>Active</status>
+    <variables>
+        <name>chatMessageOutput_200</name>
+        <apexClass>ExternalService__Slack_200</apexClass>
+        <dataType>Apex</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>
