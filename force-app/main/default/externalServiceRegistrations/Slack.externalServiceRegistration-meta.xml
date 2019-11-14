@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExternalServiceRegistration xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Slack</label>
+    <namedCredential>Slack</namedCredential>
+    <schema>{
+    &quot;swagger&quot;: &quot;2.0&quot;,
+    &quot;host&quot;: &quot;slack.com&quot;,
+    &quot;info&quot;: {
+        &quot;description&quot;: &quot;One way to interact with the Slack platform is its HTTP RPC-based Web API, a collection of methods requiring OAuth 2.0-based user, bot, or workspace tokens blessed with related OAuth scopes.&quot;,
+        &quot;title&quot;: &quot;Slack Web API&quot;,
+        &quot;version&quot;: &quot;1.2.0&quot;
+    },
+    &quot;basePath&quot;: &quot;/api&quot;,
+    &quot;definitions&quot;: {
+        &quot;defs_channel&quot;: {
+            &quot;pattern&quot;: &quot;^[CGD][A-Z0-9]{8}$&quot;,
+            &quot;title&quot;: &quot;Channel-like conversation ID&quot;,
+            &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;defs_ok_false&quot;: {
+            &quot;enum&quot;: [
+                false
+            ],
+            &quot;title&quot;: &quot;default failure response&quot;,
+            &quot;type&quot;: &quot;boolean&quot;
+        },
+        &quot;defs_ok_true&quot;: {
+            &quot;enum&quot;: [
+                true
+            ],
+            &quot;title&quot;: &quot;default success response&quot;,
+            &quot;type&quot;: &quot;boolean&quot;
+        },
+        &quot;defs_ts&quot;: {
+            &quot;pattern&quot;: &quot;^\\d{10}\\.\\d{6}$&quot;,
+            &quot;title&quot;: &quot;Timestamp in format 0123456789.012345&quot;,
+            &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;defs_user_id&quot;: {
+            &quot;pattern&quot;: &quot;^[UW][A-Z0-9]{8}$&quot;,
+            &quot;title&quot;: &quot;User ID&quot;,
+            &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;objsMessage&quot;: {
+            &quot;additionalProperties&quot;: false,
+            &quot;properties&quot;: {
+                &quot;text&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                },
+                &quot;ts&quot;: {
+                    &quot;$ref&quot;: &quot;#/definitions/defs_ts&quot;
+                },
+                &quot;type&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                },
+                &quot;user&quot;: {
+                    &quot;$ref&quot;: &quot;#/definitions/defs_user_id&quot;
+                }
+            },
+            &quot;required&quot;: [
+                &quot;text&quot;,
+                &quot;type&quot;,
+                &quot;ts&quot;
+            ],
+            &quot;title&quot;: &quot;Message object&quot;,
+            &quot;type&quot;: &quot;object&quot;
+        }
+    },
+      &quot;externalDocs&quot;: {
+    &quot;description&quot;: &quot;Learn more about the Slack Web API&quot;,
+    &quot;url&quot;: &quot;https://api.slack.com/web&quot;
+  },
+    &quot;paths&quot;: {
+        &quot;/chat.postMessage&quot;: {
+            &quot;post&quot;: {
+                &quot;consumes&quot;: [
+                    &quot;application/x-www-form-urlencoded&quot;,
+                    &quot;application/json&quot;
+                ],
+                &quot;description&quot;: &quot;Sends a message to a channel.&quot;,
+                &quot;externalDocs&quot;: {
+                    &quot;description&quot;: &quot;API method documentation&quot;,
+                    &quot;url&quot;: &quot;https://api.slack.com/methods/chat.postMessage&quot;
+                },
+                &quot;operationId&quot;: &quot;chat_postMessage&quot;,
+                &quot;parameters&quot;: [
+                    {
+                        &quot;description&quot;: &quot;Text of the message to send. See below for an explanation of [formatting](#formatting). This field is usually required, unless you&#39;re providing only `attachments` instead. Provide no more than 40,000 characters or [risk truncation](/changelog/2018-04-truncating-really-long-messages).&quot;,
+                        &quot;in&quot;: &quot;formData&quot;,
+                        &quot;name&quot;: &quot;text&quot;,
+                        &quot;type&quot;: &quot;string&quot;
+                    },
+                    {
+                        &quot;description&quot;: &quot;Change how messages are treated. Defaults to `none`. See [below](#formatting).&quot;,
+                        &quot;in&quot;: &quot;formData&quot;,
+                        &quot;name&quot;: &quot;parse&quot;,
+                        &quot;type&quot;: &quot;string&quot;
+                    },
+                    {
+                        &quot;description&quot;: &quot;Pass true to post the message as the authed user, instead of as a bot. Defaults to false. See [authorship](#authorship) below.&quot;,
+                        &quot;in&quot;: &quot;formData&quot;,
+                        &quot;name&quot;: &quot;as_user&quot;,
+                        &quot;type&quot;: &quot;boolean&quot;
+                    },
+                    {
+                        &quot;description&quot;: &quot;Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name. See [below](#channels) for more details.&quot;,
+                        &quot;in&quot;: &quot;formData&quot;,
+                        &quot;name&quot;: &quot;channel&quot;,
+                        &quot;type&quot;: &quot;string&quot;
+                    },
+                    {
+                        &quot;description&quot;: &quot;Set your bot&#39;s user name. Must be used in conjunction with `as_user` set to false, otherwise ignored. See [authorship](#authorship) below.&quot;,
+                        &quot;in&quot;: &quot;formData&quot;,
+                        &quot;name&quot;: &quot;username&quot;,
+                        &quot;type&quot;: &quot;string&quot;
+                    },
+                    {
+                        &quot;description&quot;: &quot;Authentication token. Requires scope: `chat:write`&quot;,
+                        &quot;in&quot;: &quot;header&quot;,
+                        &quot;name&quot;: &quot;token&quot;,
+                        &quot;type&quot;: &quot;string&quot;
+                    }
+                ],
+                &quot;produces&quot;: [
+                    &quot;application/json&quot;
+                ],
+                &quot;responses&quot;: {
+                    &quot;200&quot;: {
+                        &quot;description&quot;: &quot;Typical success response&quot;,
+                        &quot;examples&quot;: {
+                            &quot;application/json&quot;: {
+                                &quot;channel&quot;: &quot;C1H9RESGL&quot;,
+                                &quot;message&quot;: {
+                                    &quot;attachments&quot;: [
+                                        {
+                                            &quot;fallback&quot;: &quot;This is an attachment&#39;s fallback&quot;,
+                                            &quot;id&quot;: 1,
+                                            &quot;text&quot;: &quot;This is an attachment&quot;
+                                        }
+                                    ],
+                                    &quot;bot_id&quot;: &quot;B19LU7CSY&quot;,
+                                    &quot;subtype&quot;: &quot;bot_message&quot;,
+                                    &quot;text&quot;: &quot;Here&#39;s a message for you&quot;,
+                                    &quot;ts&quot;: &quot;1503435956.000247&quot;,
+                                    &quot;type&quot;: &quot;message&quot;,
+                                    &quot;username&quot;: &quot;ecto1&quot;
+                                },
+                                &quot;ok&quot;: true,
+                                &quot;ts&quot;: &quot;1503435956.000247&quot;
+                            }
+                        },
+                        &quot;schema&quot;: {
+                            &quot;additionalProperties&quot;: false,
+                            &quot;description&quot;: &quot;Schema for successful response of chat.postMessage method&quot;,
+                            &quot;properties&quot;: {
+                                &quot;channel&quot;: {
+                                    &quot;$ref&quot;: &quot;#/definitions/defs_channel&quot;
+                                },
+                                &quot;message&quot;: {
+                                    &quot;$ref&quot;: &quot;#/definitions/objsMessage&quot;
+                                },
+                                &quot;ok&quot;: {
+                                    &quot;$ref&quot;: &quot;#/definitions/defs_ok_true&quot;
+                                },
+                                &quot;error&quot;: {
+                                  &quot;enum&quot;: [
+                                    &quot;channel_not_found&quot;,
+                                    &quot;not_in_channel&quot;,
+                                    &quot;is_archived&quot;,
+                                    &quot;msg_too_long&quot;,
+                                    &quot;no_text&quot;,
+                                    &quot;too_many_attachments&quot;,
+                                    &quot;rate_limited&quot;,
+                                    &quot;not_authed&quot;,
+                                    &quot;invalid_auth&quot;,
+                                    &quot;account_inactive&quot;,
+                                    &quot;invalid_arg_name&quot;,
+                                    &quot;invalid_array_arg&quot;,
+                                    &quot;invalid_charset&quot;,
+                                    &quot;invalid_form_data&quot;,
+                                    &quot;invalid_post_type&quot;,
+                                    &quot;missing_post_type&quot;
+                                  ],
+                                  &quot;type&quot;: &quot;string&quot;
+                                },
+                                &quot;ts&quot;: {
+                                    &quot;$ref&quot;: &quot;#/definitions/defs_ts&quot;
+                                }
+                            },
+                            &quot;required&quot;: [
+                                &quot;ok&quot;,
+                                &quot;channel&quot;,
+                                &quot;ts&quot;,
+                                &quot;message&quot;
+                            ],
+                            &quot;title&quot;: &quot;chat.postMessage success schema&quot;,
+                            &quot;type&quot;: &quot;object&quot;
+                        }
+                    }
+                },
+                &quot;security&quot;: [
+                    {
+                        &quot;slackAuth&quot;: [
+                            &quot;chat:write:user&quot;,
+                            &quot;chat:write:bot&quot;
+                        ]
+                    }
+                ],
+                &quot;tags&quot;: [
+                    &quot;chat&quot;
+                ]
+            }
+        }
+    },
+    &quot;schemes&quot;: [
+        &quot;https&quot;
+    ],
+    &quot;securityDefinitions&quot;: {
+        &quot;slackAuth&quot;: {
+            &quot;authorizationUrl&quot;: &quot;https://slack.com/oauth/authorize&quot;,
+            &quot;flow&quot;: &quot;accessCode&quot;,
+            &quot;scopes&quot;: {
+                &quot;admin&quot;: &quot;admin&quot;,
+                &quot;admin.users:write&quot;: &quot;admin.users:write&quot;,
+                &quot;bot&quot;: &quot;Bot user scope&quot;,
+                &quot;channels:history&quot;: &quot;channels:history&quot;,
+                &quot;channels:read&quot;: &quot;channels:read&quot;,
+                &quot;channels:write&quot;: &quot;channels:write&quot;,
+                &quot;chat:write&quot;: &quot;chat:write&quot;,
+                &quot;chat:write:bot&quot;: &quot;Author messages as a bot&quot;,
+                &quot;chat:write:user&quot;: &quot;chat:write:user&quot;,
+                &quot;conversations:history&quot;: &quot;conversations:history&quot;,
+                &quot;conversations:read&quot;: &quot;conversations:read&quot;,
+                &quot;conversations:write&quot;: &quot;conversations:write&quot;,
+                &quot;dnd:read&quot;: &quot;dnd:read&quot;,
+                &quot;dnd:write&quot;: &quot;dnd:write&quot;,
+                &quot;emoji:read&quot;: &quot;emoji:read&quot;,
+                &quot;files:read&quot;: &quot;files:read&quot;,
+                &quot;files:write:user&quot;: &quot;files:write:user&quot;,
+                &quot;groups:history&quot;: &quot;groups:history&quot;,
+                &quot;groups:read&quot;: &quot;groups:read&quot;,
+                &quot;groups:write&quot;: &quot;groups:write&quot;,
+                &quot;identity.basic&quot;: &quot;identity.basic&quot;,
+                &quot;im:history&quot;: &quot;im:history&quot;,
+                &quot;im:read&quot;: &quot;im:read&quot;,
+                &quot;im:write&quot;: &quot;im:write&quot;,
+                &quot;links:write&quot;: &quot;links:write&quot;,
+                &quot;mpim:history&quot;: &quot;mpim:history&quot;,
+                &quot;mpim:read&quot;: &quot;mpim:read&quot;,
+                &quot;mpim:write&quot;: &quot;mpim:write&quot;,
+                &quot;none&quot;: &quot;No scope required&quot;,
+                &quot;pins:read&quot;: &quot;pins:read&quot;,
+                &quot;pins:write&quot;: &quot;pins:write&quot;,
+                &quot;reactions:read&quot;: &quot;reactions:read&quot;,
+                &quot;reactions:write&quot;: &quot;reactions:write&quot;,
+                &quot;reminders:read&quot;: &quot;reminders:read&quot;,
+                &quot;reminders:write&quot;: &quot;reminders:write&quot;,
+                &quot;rtm:stream&quot;: &quot;rtm:stream&quot;,
+                &quot;search:read&quot;: &quot;search:read&quot;,
+                &quot;stars:read&quot;: &quot;stars:read&quot;,
+                &quot;stars:write&quot;: &quot;stars:write&quot;,
+                &quot;team:read&quot;: &quot;team:read&quot;,
+                &quot;tokens.basic&quot;: &quot;tokens.basic&quot;,
+                &quot;usergroups:read&quot;: &quot;usergroups:read&quot;,
+                &quot;usergroups:write&quot;: &quot;usergroups:write&quot;,
+                &quot;users.profile:read&quot;: &quot;users.profile:read&quot;,
+                &quot;users.profile:write&quot;: &quot;users.profile:write&quot;,
+                &quot;users:read&quot;: &quot;users:read&quot;,
+                &quot;users:read.email&quot;: &quot;users:read.email&quot;,
+                &quot;users:write&quot;: &quot;users:write&quot;
+            },
+            &quot;tokenUrl&quot;: &quot;https://slack.com/api/oauth.access&quot;,
+            &quot;type&quot;: &quot;oauth2&quot;
+        }
+    }
+}</schema>
+    <schemaType>OpenApi</schemaType>
+    <status>Complete</status>
+</ExternalServiceRegistration>
