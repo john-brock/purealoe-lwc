@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
-        <name>Post_message_to_Slack</name>
-        <label>Post message to Slack</label>
-        <locationX>233</locationX>
-        <locationY>174</locationY>
+        <name>Post_Message_to_Slack</name>
+        <label>Post Message to Slack</label>
+        <locationX>338</locationX>
+        <locationY>96</locationY>
         <actionName>Slack.chat_postMessage</actionName>
         <actionType>externalService</actionType>
         <inputParameters>
@@ -35,7 +35,7 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
-    <startElementReference>Post_message_to_Slack</startElementReference>
+    <startElementReference>PauseFor0Seconds</startElementReference>
     <status>Active</status>
     <variables>
         <name>SlackMessageBody</name>
@@ -47,4 +47,35 @@
             <stringValue>Order for bundle made by customer -- please review and confirm shipment. </stringValue>
         </value>
     </variables>
+    <waits>
+        <name>PauseFor0Seconds</name>
+        <label>PauseFor0Seconds</label>
+        <locationX>208</locationX>
+        <locationY>221</locationY>
+        <defaultConnectorLabel>Default Path</defaultConnectorLabel>
+        <waitEvents>
+            <name>AlwaysSleep</name>
+            <conditionLogic>and</conditionLogic>
+            <connector>
+                <targetReference>Post_Message_to_Slack</targetReference>
+            </connector>
+            <eventType>AlarmEvent</eventType>
+            <inputParameters>
+                <name>AlarmTime</name>
+                <value>
+                    <elementReference>$Flow.CurrentDateTime</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>TimeOffset</name>
+                <value>
+                    <numberValue>0.0</numberValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>TimeOffsetUnit</name>
+            </inputParameters>
+            <label>AlwaysSleep</label>
+        </waitEvents>
+    </waits>
 </Flow>

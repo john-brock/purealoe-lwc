@@ -22,7 +22,7 @@
         <inputParameters>
             <name>emailAddresses</name>
             <value>
-                <stringValue>ccoenraets@salesforce.com</stringValue>
+                <stringValue>cdascenzo@salesforce.com</stringValue>
             </value>
         </inputParameters>
     </actionCalls>
@@ -48,7 +48,69 @@
         <inputParameters>
             <name>emailAddresses</name>
             <value>
-                <stringValue>ccoenraets@salesforce.com</stringValue>
+                <stringValue>cdascenzo@salesforce.com</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>ActionCallType</name>
+            <value>
+                <stringValue>flow</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>flowSelection</name>
+            <value>
+                <stringValue>Update Inventory</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_1_A1</name>
+        <label>Update Inventory</label>
+        <locationX>100</locationX>
+        <locationY>200</locationY>
+        <actionName>Update_Inventory</actionName>
+        <actionType>flow</actionType>
+        <inputParameters>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>BundleId</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>maxOccurs</name>
+                <value>
+                    <numberValue>1.0</numberValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>objectType</name>
+                <value>
+                    <stringValue/>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Reference</stringValue>
+                </value>
+            </processMetadataValues>
+            <name>BundleId</name>
+            <value>
+                <elementReference>myVariable_event_context.Id</elementReference>
             </value>
         </inputParameters>
     </actionCalls>
@@ -144,17 +206,6 @@
         </rules>
     </decisions>
     <formulas>
-        <processMetadataValues>
-            <name>originalFormula</name>
-            <value>
-                <stringValue>TODAY() </stringValue>
-            </value>
-        </processMetadataValues>
-        <name>formula_2_myRule_1_A2_3843570683</name>
-        <dataType>Date</dataType>
-        <expression>TODAY()</expression>
-    </formulas>
-    <formulas>
         <name>formula_myRule_1</name>
         <dataType>Boolean</dataType>
         <expression>true</expression>
@@ -164,7 +215,7 @@
         <dataType>String</dataType>
         <expression>{!$Organization.Name}</expression>
     </formulas>
-    <interviewLabel>Bundle_Ordered-6_InterviewLabel</interviewLabel>
+    <interviewLabel>Bundle_Ordered-1_InterviewLabel</interviewLabel>
     <label>Bundle Ordered</label>
     <loops>
         <name>eventContextCheckLoop</name>
@@ -254,200 +305,14 @@
         </filters>
         <object>Bundle__c</object>
         <outputReference>myVariable_event_context_collection</outputReference>
+        <queriedFields>Id</queriedFields>
     </recordLookups>
-    <recordUpdates>
-        <processMetadataValues>
-            <name>evaluationType</name>
-            <value>
-                <stringValue>always</stringValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>isChildRelationship</name>
-            <value>
-                <booleanValue>false</booleanValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>reference</name>
-            <value>
-                <stringValue>[Bundle__c]</stringValue>
-            </value>
-        </processMetadataValues>
-        <name>myRule_1_A1</name>
-        <label>Change Bundle Status</label>
-        <locationX>100</locationX>
-        <locationY>200</locationY>
-        <connector>
-            <targetReference>myRule_1_A2</targetReference>
-        </connector>
-        <filters>
-            <processMetadataValues>
-                <name>implicit</name>
-                <value>
-                    <booleanValue>true</booleanValue>
-                </value>
-            </processMetadataValues>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>myVariable_event_context.Id</elementReference>
-            </value>
-        </filters>
-        <inputAssignments>
-            <processMetadataValues>
-                <name>dataType</name>
-                <value>
-                    <stringValue>Picklist</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>isRequired</name>
-                <value>
-                    <booleanValue>false</booleanValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideLabel</name>
-                <value>
-                    <stringValue>Status</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideReferenceTo</name>
-                <value>
-                    <stringValue/>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>rightHandSideType</name>
-                <value>
-                    <stringValue>Picklist</stringValue>
-                </value>
-            </processMetadataValues>
-            <field>Status__c</field>
-            <value>
-                <stringValue>Ordered by Distributor</stringValue>
-            </value>
-        </inputAssignments>
-        <object>Bundle__c</object>
-    </recordUpdates>
-    <recordUpdates>
-        <processMetadataValues>
-            <name>evaluationType</name>
-            <value>
-                <stringValue>always</stringValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>isChildRelationship</name>
-            <value>
-                <booleanValue>false</booleanValue>
-            </value>
-        </processMetadataValues>
-        <processMetadataValues>
-            <name>reference</name>
-            <value>
-                <stringValue>[Bundle__c]</stringValue>
-            </value>
-        </processMetadataValues>
-        <name>myRule_1_A2</name>
-        <label>Order</label>
-        <locationX>100</locationX>
-        <locationY>300</locationY>
-        <filters>
-            <processMetadataValues>
-                <name>implicit</name>
-                <value>
-                    <booleanValue>true</booleanValue>
-                </value>
-            </processMetadataValues>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>myVariable_event_context.Id</elementReference>
-            </value>
-        </filters>
-        <inputAssignments>
-            <processMetadataValues>
-                <name>dataType</name>
-                <value>
-                    <stringValue>ID</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>isRequired</name>
-                <value>
-                    <booleanValue>false</booleanValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideLabel</name>
-                <value>
-                    <stringValue>Account</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideReferenceTo</name>
-                <value>
-                    <stringValue>Account</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>rightHandSideType</name>
-                <value>
-                    <stringValue>Event</stringValue>
-                </value>
-            </processMetadataValues>
-            <field>Account__c</field>
-            <value>
-                <elementReference>myVariable_myEvent.Account_Id__c</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <processMetadataValues>
-                <name>dataType</name>
-                <value>
-                    <stringValue>Date</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>isRequired</name>
-                <value>
-                    <booleanValue>false</booleanValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideLabel</name>
-                <value>
-                    <stringValue>Date Ordered</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideReferenceTo</name>
-                <value>
-                    <stringValue/>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>rightHandSideType</name>
-                <value>
-                    <stringValue>Formula</stringValue>
-                </value>
-            </processMetadataValues>
-            <field>Date_Ordered__c</field>
-            <value>
-                <elementReference>formula_2_myRule_1_A2_3843570683</elementReference>
-            </value>
-        </inputAssignments>
-        <object>Bundle__c</object>
-    </recordUpdates>
     <startElementReference>myEventContextRecordLookup</startElementReference>
-    <status>Draft</status>
+    <status>Active</status>
     <textTemplates>
         <description>text template for when multiple records are records found</description>
         <name>multipleRecordsFoundTextTemplate</name>
-        <text>Hello {!OrganizationName} Admin,
+        <text>Hello {!OrganizationName} Admin, 
 
 The Bundle Ordered process is configured to start when a Bundle Ordered platform event message occurs. A Bundle Ordered message occurred, but the process didn&#39;t start because multiple records in your org match the values specified in the process&#39;s Object node.
 
@@ -456,13 +321,13 @@ Bundle Id: {!myVariable_myEvent.Bundle_Id__c}
 
 To fix this issue, adjust the matching filters in the process&#39;s Object node.
 
-Thank you,
+Thank you, 
 Salesforce Process Automation</text>
     </textTemplates>
     <textTemplates>
         <description>text template for no records found</description>
         <name>noRecordsFoundTextTemplate</name>
-        <text>Hello {!OrganizationName} Admin,
+        <text>Hello {!OrganizationName} Admin, 
 
 The Bundle Ordered process is configured to start when a Bundle Ordered platform event message occurs. A Bundle Ordered message occurred, but the process didn&#39;t start because no records in your org match the values specified in the process&#39;s Object node.
 
@@ -471,7 +336,7 @@ Bundle Id: {!myVariable_myEvent.Bundle_Id__c}
 
 To fix this issue, adjust the matching filters in the process&#39;s Object node.
 
-Thank you,
+Thank you, 
 Salesforce Process Automation</text>
     </textTemplates>
     <variables>

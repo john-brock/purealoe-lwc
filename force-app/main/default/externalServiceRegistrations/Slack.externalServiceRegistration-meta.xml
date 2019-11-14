@@ -74,8 +74,7 @@
         &quot;/chat.postMessage&quot;: {
             &quot;post&quot;: {
                 &quot;consumes&quot;: [
-                    &quot;application/x-www-form-urlencoded&quot;,
-                    &quot;application/json&quot;
+                    &quot;application/x-www-form-urlencoded&quot;
                 ],
                 &quot;description&quot;: &quot;Sends a message to a channel.&quot;,
                 &quot;externalDocs&quot;: {
