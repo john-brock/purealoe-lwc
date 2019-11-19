@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>JB Twilio WhatsApp</label>
+    <protected>false</protected>
+    <values>
+        <field>Account_Phone__c</field>
+        <value xsi:type="xsd:string">+14155238886</value>
+    </values>
+    <values>
+        <field>Account_SID__c</field>
+        <value xsi:type="xsd:string">ACa70f7b87c8494945956ce4bb83c15474</value>
+    </values>
+    <values>
+        <field>Named_Cred_API_Name__c</field>
+        <value xsi:type="xsd:string">TwilioJB</value>
+    </values>
+    <values>
+        <field>Use_Whatsapp__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

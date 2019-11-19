@@ -52,7 +52,7 @@
             </processMetadataValues>
             <name>body</name>
             <value>
-                <elementReference>formula_3_myRule_1_A1_7647920414</elementReference>
+                <elementReference>formula_3_myRule_1_A1_4522851688</elementReference>
             </value>
         </inputParameters>
         <inputParameters>
@@ -218,14 +218,14 @@
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>&quot;Good news! Your flash sale order for &quot; + [Bundle__c].Description__c + &quot;(&quot; + [Bundle__c].Name + &quot;) has shipped!&quot;</stringValue>
+                <stringValue>&quot;Your Flash Sales order of &quot; + [Bundle__c].Description__c + &quot;(&quot; + [Bundle__c].Name + &quot;) has shipped and should be delivered on Saturday. Details: https://df19-int-aloe.herokuapp.com/&quot;</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_3_myRule_1_A1_7647920414</name>
+        <name>formula_3_myRule_1_A1_4522851688</name>
         <dataType>String</dataType>
-        <expression>&quot;Good news! Your flash sale order for &quot; + {!myVariable_current.Description__c} + &quot;(&quot; + {!myVariable_current.Name} + &quot;) has shipped!&quot;</expression>
+        <expression>&quot;Your Flash Sales order of &quot; + {!myVariable_current.Description__c} + &quot;(&quot; + {!myVariable_current.Name} + &quot;) has shipped and should be delivered on Saturday. Details: https://df19-int-aloe.herokuapp.com/&quot;</expression>
     </formulas>
-    <interviewLabel>Bundle_Shipped-4_InterviewLabel</interviewLabel>
+    <interviewLabel>Bundle_Shipped-3_InterviewLabel</interviewLabel>
     <label>Bundle Shipped</label>
     <processMetadataValues>
         <name>ObjectType</name>

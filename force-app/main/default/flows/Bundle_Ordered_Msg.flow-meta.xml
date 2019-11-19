@@ -58,7 +58,7 @@
             </processMetadataValues>
             <name>SlackMessageBody</name>
             <value>
-                <elementReference>formula_3_myRule_1_A1_8811421454</elementReference>
+                <elementReference>formula_3_myRule_1_A1_0987440858</elementReference>
             </value>
         </inputParameters>
     </actionCalls>
@@ -182,14 +182,14 @@
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>[Bundle__c].Description__c + &quot; was ordered by &quot; + [Bundle__c].Account__c.Name +&quot;. Please review the order and confirm shipment. https://df19integration-dev-ed.lightning.force.com/&quot; + [Bundle__c].Id
+                <stringValue>[Bundle__c].Description__c + &quot; was ordered by &quot; + [Bundle__c].Account__c.Name +&quot;. Please review the order and confirm shipment. https://df19platformbrk-dev-ed.lightning.force.com/&quot; + [Bundle__c].Id
 
 </stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_3_myRule_1_A1_8811421454</name>
+        <name>formula_3_myRule_1_A1_0987440858</name>
         <dataType>String</dataType>
-        <expression>{!myVariable_current.Description__c} + &quot; was ordered by &quot; + {!myVariable_current.Account__r.Name} +&quot;. Please review the order and confirm shipment. https://df19integration-dev-ed.lightning.force.com/&quot; + {!myVariable_current.Id}</expression>
+        <expression>{!myVariable_current.Description__c} + &quot; was ordered by &quot; + {!myVariable_current.Account__r.Name} +&quot;. Please review the order and confirm shipment. https://df19platformbrk-dev-ed.lightning.force.com/&quot; + {!myVariable_current.Id}</expression>
     </formulas>
     <interviewLabel>Bundle_Ordered_Msg-2_InterviewLabel</interviewLabel>
     <label>Bundle Ordered</label>

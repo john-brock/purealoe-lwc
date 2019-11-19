@@ -8,15 +8,15 @@
         <actionName>Slack.chat_postMessage</actionName>
         <actionType>externalService</actionType>
         <inputParameters>
-            <name>channel</name>
-            <value>
-                <stringValue>CQA2VLTMM</stringValue>
-            </value>
-        </inputParameters>
-        <inputParameters>
             <name>text</name>
             <value>
                 <stringValue>Posting from Pure Aloe!</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>channel</name>
+            <value>
+                <stringValue>CQMAP9UKY</stringValue>
             </value>
         </inputParameters>
         <outputParameters>

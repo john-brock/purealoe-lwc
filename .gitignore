@@ -35,3 +35,4 @@ $RECYCLE.BIN/
 .vscode/
 
 force-app/main/default/namedCredentials/TwilioJB.namedCredential-meta.xml
+Secrets.txt
